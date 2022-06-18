@@ -1,0 +1,95 @@
+// Colors
+$background : #FFFFFF;
+$searchBar : #F5F5F5;
+$icons : #393B4D;
+
+.topBar__container__outer {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    right: 5px;
+    top: 0;
+    height: 60px;
+    width: calc(100% - 305px);
+    background-color: $background;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    z-index: 99999;
+    
+    .topBar__container__inner {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+    
+        .topBar__container__searchBar {
+            display: flex;
+            flex-direction: row;
+            width: 45%;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: $background;
+    
+            img {
+                width: 20px;
+                height: 15px;
+                color: $icons;
+                margin: auto 10px;
+                cursor: pointer;
+            }
+    
+            .searchBar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-width: 200px;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 40px;
+                border-radius: 10px;
+                margin: auto 5px;
+                width: 80%;
+                background-color: $searchBar;
+                z-index: 9999;
+    
+                img {
+                    width: 15px;
+                    height: 15px;
+                    cursor: pointer;
+                }
+    
+                input {
+                    background-color: $searchBar;
+                    color: $icons;
+                    width: 90%;
+                    font-size: 1.1em;
+                    font-weight: 500;
+                }
+            }
+    
+        }
+    
+        .topBar__container__icons__right {
+            display: flex;
+            flex-direction: row;
+            width: 200px;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            padding-right: 20px;
+            background-color: $background;
+    
+            img {
+                height: 22px;
+                width: 22px;
+                cursor: pointer;
+            }
+        }
+    
+    }
+}

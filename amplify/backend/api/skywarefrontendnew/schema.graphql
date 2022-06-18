@@ -1,0 +1,189 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Manager @model {
+    uuid: ID! @primaryKey
+    profile: AWSJSON
+    warehouses: [Warehouse] @hasMany
+    workers: [Worker] @hasMany
+}
+
+type Worker @model {
+    uuid: ID! @primaryKey
+    profile: AWSJSON
+    notifications: [Notification] @manyToMany (relationName: "workerNotifications")
+    tasks: [Task] @manyToMany (relationName: "workerTasks")
+    manager: Manager @belongsTo
+}
+
+type Notification @model {
+    uuid: ID! @primaryKey
+    description: Alert
+    wokers: [Worker] @manyToMany (relationName: "workerNotifications")
+}
+
+type Task @model {
+    uuid: ID! @primaryKey
+    description: Todo
+    wokers: [Worker] @manyToMany (relationName: "workerTasks")
+}
+
+type Warehouse @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    #####
+    # description {
+    #     godownCount
+    #     location
+    # }
+    #####
+    godowns: [Godown] @hasMany
+    manager: Manager @belongsTo
+}
+
+type Godown @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    #####
+    # description {
+    #     compartmentCount
+    # }
+    #####
+    compartments: [Compartment] @hasMany
+    warehouse: Warehouse @belongsTo
+}
+
+type Compartment @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    #####
+    # description {
+    #     stackCount
+    # }
+    #####
+    stacks: [Stack] @hasMany
+    hub: Hub @hasOne
+    godown: Godown @belongsTo
+}
+
+type Hub @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    nodes: [Node] @hasMany
+    compartment: Compartment @belongsTo
+}
+
+type Comodity @model {
+    uuid: ID! @primaryKey
+    profile: String
+    description: AWSJSON
+    #####
+    # description {
+    #     activities {
+    #        highTemperature: "Lorem Ipsum"
+    #    }
+    # }
+    #####
+    shelflife: Int           # days
+    thresholds: AWSJSON
+    #####
+    # thresholds {
+    #     temperature: {
+    #         low
+    #         high
+    #     },
+    #     moisture: {
+    #         low
+    #         high
+    #     },
+    #     gas1: {
+    #         low
+    #         high
+    #     }
+    # }
+    #####
+    nodes: [Node] @hasMany
+}
+
+type Node @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    stack: Stack @belongsTo
+    hub: Hub @belongsTo
+    comodity: Comodity @belongsTo
+}
+
+type Stack @model {
+    uuid: ID! @primaryKey
+    name: String
+    description: AWSJSON
+    #####
+    # description {
+    #     nodeCount
+    # }
+    #####
+    node: [Node] @hasMany
+    compartment: Compartment @belongsTo
+}
+
+type hubEntry @model {
+    uuid: ID! @primaryKey
+    hubId: ID
+    status: Status
+    description: AWSJSON
+    ######
+    # description {
+    #     nodes: [
+    #         {
+    #             id
+    #             name
+    #             params: {
+    #                 temperature
+    #                 moisture
+    #                 gas1
+    #             }
+    #         }
+    #     ]
+    # }
+    ######
+}
+
+type nodeEntry @model {
+    uuid: ID! @primaryKey
+    nodeId: ID!
+    status: Status
+    params: AWSJSON
+    ######
+    # params: {
+    #     temp
+    #     moisture
+    #     gas1
+    # }
+    ######
+}
+
+
+enum Alert {
+    alert_1
+    alert_2
+    alert_3
+    alert_4
+}
+
+enum Status {
+	active
+	passive
+}
+
+enum Todo {
+	todo_1
+	todo_2
+	todo_3
+	todo_4
+}

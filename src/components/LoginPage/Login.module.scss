@@ -1,0 +1,303 @@
+// Colors
+$heading : #3A3C4E;
+$main : #4EAB8D;
+$shortHeading :#616371;
+$inner : #8C93A4;
+
+// Top Heading
+.top__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+    h1 {
+        margin: 20px auto;
+        color: $heading;
+        font-size: 2em;
+        font-weight: 600;
+    }
+} 
+
+.middle__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+
+    h3 {
+        color: $shortHeading;
+        font-weight: 500;
+    }
+}
+
+.outer__form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    
+    .inner__form__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        max-width: 500px;
+        border-radius: 10px;
+        height: 200px;
+        width: 95%;
+        background-color: $main;
+
+        .email__field , .password__field {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            img {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left: 50px;
+                transform: scale(1.3);
+            }
+
+            .Icon__Change {
+                transform: scale(1.1);
+            }
+
+            input {
+                background-color: whitesmoke;
+                padding: 10px;
+                border-radius: 5px;
+                width: 85%;
+                height: 50px;
+                color: $inner;
+                font-weight: 400;
+                padding-left: 60px;
+                font-size: 1.1em;
+                overflow: hidden;
+            }
+
+            .pipe__line {
+                display: flex;
+                position: absolute;
+                content: "";
+                width: 2px;
+                height: 30px;
+                background-color: $inner;
+                right: 110px;
+            }
+
+            button {
+                position: absolute;
+                font-weight: 400;
+                font-size: 0.8em;
+                color: $inner;
+                border-left: 2px solid $inner;
+                right: 50px;
+                padding-left: 10px;
+                border: none;
+                background-color: whitesmoke;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .submit__form__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 500px;
+        width: 90%;
+        height: auto;
+        margin: 20px 2px;
+
+        .sign__up {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #3A3C4ECC;
+
+            button {
+                font-size: 1em;
+                color: $main;
+                background-color: whitesmoke;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                margin-left: 5px;
+                font-weight: bold;
+            }
+
+        }
+
+        
+        .login__button {
+            font-size: 1.1em;
+            padding: 10px 30px;
+            background-color: $main;
+            color: whitesmoke;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: .2s all ease-in-out;
+        }
+
+        .login__button:hover {
+            background-color: rgba(78, 171, 141 , 0.9);
+            color: rgb(235, 235, 235);
+        }
+    }
+}
+
+.social__login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .social__login__upper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        color: $inner;
+        max-width: 400px;
+        width: 95%;
+
+        .line {
+            width: 40%;
+            height: 2px;
+            background-color: $inner;
+            content: "";
+        }
+    }
+
+    >h3 {
+        color: $main;
+        font-weight: 600;
+        margin: 30px auto;
+        font-size: 1.1em;
+    }
+
+    .social__login__icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        max-width: 300px;
+        width: 100%;
+        margin-bottom: 40px;
+
+        a {
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width : 400px) {
+    .top__heading h1 {
+        font-size: 1.5em;
+    }
+
+    .middle__text h3 {
+        font-size: 1em;
+    }
+
+    .outer__form__container {
+
+        .inner__form__container {
+            max-width: 480px;
+            border-radius: 8px;
+            height: 180px;
+
+            .email__field , .password__field {
+        
+                img {
+                    left: 40px;
+                    transform: scale(1.1);
+                }
+        
+                .Icon__Change {
+                    transform: scale(0.9);
+                }
+        
+                input {
+                    font-weight: 500;
+                    padding-left: 50px;
+                    font-size: 0.9em;
+                }
+        
+                .pipe__line {
+                    width: 2px;
+                    height: 25px;
+                    right: 95px;
+                }
+        
+                button {
+                    font-weight: 500;
+                    right: 40px;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+
+    .submit__form__container {
+
+        .sign__up {
+
+            button {
+                font-size: 0.9em;
+            }
+        }
+
+        >button {
+            font-size: 1em;
+            padding: 8px 26px;
+            border-radius: 5px;
+        }
+    }
+
+    
+    .social__login__container {
+
+        .social__login__upper {
+
+            .line {
+                width: 35%;
+                height: 2px;
+                background-color: $inner;
+                content: "";
+            }
+        }
+
+        >h3 {
+            margin: 20px auto;
+            font-size: 1em;
+        }
+
+        .social__login__icons {
+    
+            a {
+                img {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+    }
+}

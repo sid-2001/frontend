@@ -1,0 +1,81 @@
+
+.account__type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        max-width: 480px;
+        width: 100%;
+
+        .type {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            width: 130px;
+            height: 140px;
+            cursor: pointer;
+
+            img {
+                height: 130px;
+                width: 120px;
+            }
+
+            .tick__outer {
+                display: flex;
+                border-radius: 50%;
+                background-color: white;
+                position: absolute;
+                height: 28px;
+                width: 28px;
+                right: 0;
+                bottom: 0;
+                content: "";
+
+                .tick {
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+
+        }
+
+    }
+}
+
+@media (max-width : 400px) {
+    .account__type {
+        div {
+            .type {
+                height: 110px;
+                width: 100px;
+
+                img {
+                    height: 100px;
+                    width: 90px;
+                }
+
+                .tick__outer {
+                    height: 18px;
+                    width: 18px;
+    
+                    .tick {
+                        height: 15px;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

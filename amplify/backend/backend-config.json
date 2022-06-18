@@ -1,0 +1,22 @@
+{
+  "api": {
+    "skywarefrontendnew": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 180,
+              "apiKeyExpirationDate": "2022-11-17T10:32:23.278Z",
+              "description": "180"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  }
+}

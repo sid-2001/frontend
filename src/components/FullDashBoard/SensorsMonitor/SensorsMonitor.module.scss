@@ -1,0 +1,278 @@
+// Colors
+$background : #FFFFFF;
+$icons : #393B4D;
+$text : #8C93A4;
+$background__primary : #f5f5f5;
+$redColor : #D80027;
+$main : #4EAB8D;
+$boxShadow : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+.sensorsMonitor__data__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    width: calc(100% - 300px);
+    height: auto;
+    top: 62px;
+    right: 0;
+
+    .sensorsMonitor__top__screen{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 150px;
+        width: 100%;
+        background-color: $background;
+        margin-top: 2px;
+
+        .manager__sensorsMonitor__details {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            justify-content: left;
+            margin-top: 20px;
+
+            h1 {
+                font-size: 2.4em;
+                color: $icons;
+                margin-left: 40px;
+
+                @media (max-width:950px) {
+                    font-size: 1.9em;
+                }
+
+                @media (max-width:800px) {
+                   font-size: 1.7em; 
+                }
+            }
+
+            h3 {
+                color: $text;
+                font-size: 1em;
+                margin-left: 40px;
+                margin-top: 10px;
+
+                @media (max-width:950px) {
+                    font-size: 0.8em;
+                }
+
+                @media (max-width:760px) {
+                    font-size: 0.7em;
+                }
+            }
+        }
+    
+        .sensorsMonitor__godown__menu {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            right: 3%;
+            color: $icons;
+            height: 45px;
+            width: 220px;
+            padding-top: 20px;
+            background-color: $background__primary;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: 9999;
+            
+            div {
+                display: flex;
+                flex-direction: column;
+                h1 {
+                    color: $icons;
+                    font-size: 1.7em;
+                    font-weight: 600;
+                }
+                
+                h3 {
+                    color: $icons;
+                    font-size: 1em;
+                    font-weight: 500;
+                }
+            }
+            
+            >img {
+                margin: 15px 2px auto 20px;
+                color: $icons;
+                height: 25px;
+                width: 25px;
+                cursor: pointer;
+            }
+            
+        }
+
+    }
+
+    .different__readings__input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 40px 10px;
+        padding: auto 10px;
+        max-width: 1200px;
+        min-width: 240px;
+        width: 95%;
+        height: auto;
+        border-radius: 8px;
+        background-color: $icons;
+        
+        .individual__input{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            width: 200px;
+            cursor: pointer;
+            margin: 10px auto;
+            border-radius: 10px;
+            height: 50px;
+            font-size: 1.3em;
+            font-weight: 500;
+            color: $text;
+            background-color: $icons;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+
+            >img {
+                width: 28px;
+                height: 28px;
+                margin-right: 10px;
+            }
+        }
+        
+        .individual__input__selected{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            width: 200px;
+            cursor: pointer;
+            margin: 10px auto;
+            border-radius: 10px;
+            height: 50px;
+            font-size: 1.3em;
+            font-weight: 500;
+            color: $main;
+            background-color: $background;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+
+            >img {
+                color: $main;
+                width: 28px;
+                height: 28px;
+                margin-right: 10px;
+            }
+        }
+    }   
+
+    .compartmentsData__container {
+        display: flex;
+        position: relative;
+        height: auto;
+        width: 100%;
+        align-items: center;
+
+        .compartmentsData__cards__container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            width: 100%;
+            margin-bottom: 30px;
+            // top: 0;
+            // position: absolute;
+            // bottom: 0;
+            // overflow-y: auto;
+            // scrollbar-gutter: stable;
+            // height: calc(110vh - 350px);
+
+            .compartmentsData__individual {
+                display: flex;
+                flex-direction: column;
+                min-width: 400px;
+                max-width: 550px;
+                width: 40%;
+                height: 220px;
+                background-color: $background;
+                box-shadow: $boxShadow;
+                margin: 20px;
+                padding: 20px;
+                border-radius: 10px;
+
+                .compartmentsData__information {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .compartmentsData__condition {
+                        display: flex;
+                        flex-direction: column;
+
+                        h1 {
+                            color: $icons;
+                            font-size: 1.7em;
+                            margin-bottom: 5px;
+                        }
+    
+                        h2 {
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .compartmentsData__min__max__values {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-end;
+                        min-width: 125px;
+
+                        p {
+                            color: $text;
+                            font-size: 1.3em;
+                            font-weight: 600;
+
+                            .max__and__min__value {
+                                font-size: 0.9em;
+                                color: palevioletred;
+
+                                .value__units {
+                                    font-size: 0.6em;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .compartmentsData__values {
+                    display: flex;
+                    margin: auto;
+                    align-items: center;
+                    font-size: 4em;
+                    font-size: bold;
+                    color: $icons;
+
+                    span {
+                        margin: auto 0px 11px 4px;
+                        font-size: 0.4em;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
